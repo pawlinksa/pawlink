@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="javascript/shoppingcart.js"></script>
 
-    <title>Clothing Shop</title>
+    <title>Contact Us</title>
 
 <style>
 
@@ -112,66 +112,48 @@
 
 </head>
 <body>
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-
-
-            <a href="#" class="nav__logo">
-                Shop.
-            </a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">
-                            <i class="ri-home-line"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#new" class="nav__link">
-                            <i class="ri-price-tag-3-line"></i>
-                            <span>New</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#collection" class="nav__link">
-                            <i class="ri-compass-line"></i>
-                            <span>Collection</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="products.html" class="nav__link">
-                            <i class="ri-t-shirt-line"></i>
-                            <span>Products</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="accountinfo.html" class="nav__link">
-                            <i class="ri-t-shirt-line"></i>
-                            <span>Accounts</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#products" class="nav__link">
-                            <i class="ph-shopping-cart-bold"></i>
-                            <span>Cart</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Theme change button -->
-            <i class="ri-moon-line change-theme" id="theme-button"></i>
-
-
-        </nav>
-    </header>
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">Paw Link</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">
+                        <i class="ri-home-line"></i> <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="index.html#new" class="nav__link">
+                        <i class="ri-price-tag-3-line"></i> <span>New</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="index.html#collection" class="nav__link">
+                        <i class="ri-compass-line"></i> <span>Collection</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="products.html" class="nav__link">
+                        <i class="ri-t-shirt-line"></i> <span>Products</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link" id="account-link">
+                        <i class="ri-user-line"></i> <span>Account</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="cart.html" class="nav__link active-link">
+                        <i class="ph-shopping-cart-bold"></i>
+                        <span>Cart</span>
+                    </a>
+                </li>    
+            </ul>
+        </div>
+        <i class="ri-moon-line change-theme" id="theme-button"></i>
+    </nav>
+</header>
 
     <!-- Message Form Section -->
     <section class="message-form text-center">
@@ -198,14 +180,14 @@
 
     // Firebase configuration
     const firebaseConfig = {
-        apiKey: "AIzaSyCF_KgnxNfoslRddlCPmXa4ZcxBrPcVapA",
-        authDomain: "protoprint3d-bfb83.firebaseapp.com",
-        projectId: "protoprint3d-bfb83",
-        storageBucket: "protoprint3d-bfb83.appspot.com",
-        messagingSenderId: "942660716898",
-        appId: "1:942660716898:web:574d6e2c32671fee52443b",
-        measurementId: "G-7PC05J1LR9"
-    };
+            apiKey: "AIzaSyBXmhD-t6oS6vOe_CAFc9DUCoP0EmS_4Dk",
+            authDomain: "pawlink-4136f.firebaseapp.com",
+            projectId: "pawlink-4136f",
+            storageBucket: "pawlink-4136f.firebasestorage.app",
+            messagingSenderId: "87083774223",
+            appId: "1:87083774223:web:50b19b7a6e2831dde98e7a",
+            measurementId: "G-8VE5KFBPLD"
+        };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -224,7 +206,7 @@
         if (name && email && subject && message) {
             try {
                 // Add document to Firestore "contacts" collection
-                const docRef = await addDoc(collection(db, "RadBikescontacts"), {
+                const docRef = await addDoc(collection(db, "PawLinkcontacts"), {
                     name: name,
                     email: email,
                     subject: subject,
@@ -248,8 +230,8 @@
 
 
 
-        <!--==================== FOOTER ====================-->
-        <footer class="footer section">
+         <!--==================== FOOTER ====================-->
+         <footer class="footer section">
             <div class="footer__container container grid">
                 <div>
                     <a href="#" class="footer__logo">
@@ -271,31 +253,29 @@
 
                         <ul class="footer__links">
                             <li>
-                                <a href="#" class="footer__link">Shop</a>
+                                <a href="products.html" class="footer__link">Shop</a>
                             </li>
                             <li>
-                                <a href="#" class="footer__link">Category</a>
+                                <a href="index.html#collection" class="footer__link">Category</a>
                             </li>
-                            <li>
-                                <a href="#" class="footer__link">Contact info</a>
-                            </li>
+
                         </ul>
                     </div>
 
                     <div>
                         <h3 class="footer__title">
-                            Blog
+                            Contact
                         </h3>
 
                         <ul class="footer__links">
                             <li>
-                                <a href="#" class="footer__link">Events</a>
+                                <a href="contact.html" class="footer__link">Contact</a>
                             </li>
                             <li>
-                                <a href="#" class="footer__link">Popular news</a>
+                                <a href="news.html" class="footer__link">Popular news</a>
                             </li>
                             <li>
-                                <a href="#" class="footer__link">Recent news</a>
+                                <a href="about.html" class="footer__link">About</a>
                             </li>
                         </ul>
                     </div>
