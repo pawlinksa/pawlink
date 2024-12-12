@@ -33,7 +33,7 @@
   <script defer src="javascript/main.js"></script>
   <script src="assets/js/productData.js"></script>
 
-
+  <title>Checkout Details</title>
 
 
   <style>
@@ -44,7 +44,7 @@
       align-items: center;
       height: 100vh;
       padding: 20px;
-
+margin-top: 70px;
       position: relative; /* Ensure form layers on top */
         
     }
@@ -173,15 +173,7 @@
     <div class="cart-summary">
       <div class="summary-items">
         <!-- Dynamically populated cart items will go here -->
-      </div>
-      <div class="subtotal-wrapper">
-        <div class="subtotal">
-          <div class="subtotal-text">SUBTOTAL</div>
-          <div class="subtotal-amount">R 0.00</div>
-        </div>
-        <button class="view-cart-btn">VIEW CART & CHECKOUT</button>
-      </div>
-    </div>
+    
   </header>
 
   <main>
@@ -235,73 +227,85 @@
 
  
 
-  <!-- Firebase Integration -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
-    import { setDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
- 
-    const firebaseConfig = {
-                apiKey: "AIzaSyBXmhD-t6oS6vOe_CAFc9DUCoP0EmS_4Dk",
-                authDomain: "pawlink-4136f.firebaseapp.com",
-                projectId: "pawlink-4136f",
-                storageBucket: "pawlink-4136f.firebasestorage.app",
-                messagingSenderId: "87083774223",
-                appId: "1:87083774223:web:50b19b7a6e2831dde98e7a",
-                measurementId: "G-8VE5KFBPLD"
-            };
+<!-- Firebase Integration -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    
+  const firebaseConfig = {
+      apiKey: "AIzaSyBXmhD-t6oS6vOe_CAFc9DUCoP0EmS_4Dk",
+      authDomain: "pawlink-4136f.firebaseapp.com",
+      projectId: "pawlink-4136f",
+      storageBucket: "pawlink-4136f.firebasestorage.app",
+      messagingSenderId: "87083774223",
+      appId: "1:87083774223:web:50b19b7a6e2831dde98e7a",
+      measurementId: "G-8VE5KFBPLD"
+  };
 
-    // Submit form data to Firestore
-    document.getElementById('shipping-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const address = document.getElementById('address').value;
-      const city = document.getElementById('city').value;
-      const postalCode = document.getElementById('postal-code').value;
-      const country = document.getElementById('country').value;
-      const contact = document.getElementById('contact').value;
+  // Submit form data to Firestore
+  document.getElementById('shipping-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      // Retrieve cart items from localStorage
-      const cartItemNames = JSON.parse(localStorage.getItem("cartItemNames")) || [];
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const postalCode = document.getElementById('postal-code').value;
+    const country = document.getElementById('country').value;
+    const contact = document.getElementById('contact').value;
 
-      if (name && email && address && city && postalCode && country && contact) {
-        try {
+    // Retrieve cart items from localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            const userEmailNormalized = email.replace(/\./g, ","); 
-            const userDocRef = doc(db, "shippinginfo", userEmailNormalized);
-          // Add shipping info and cart items to Firestore
-          await setDoc(userDocRef, {
-            name: name,
-            email: email,
-            address: address,
-            city: city,
-            postalCode: postalCode,
-            country: country,
-            contact: contact,
-            cartItems: cartItemNames,
-            timestamp: new Date()
-          });
-          
-          alert("Your shipping info has been submitted successfully!");
-          window.location.href = "success.html";
-          document.getElementById('shipping-form').reset(); // Clear form after submission
-        } catch (e) {
-          console.error("Error adding document: ", e);
-          alert("Error: Something went wrong. Please try again.");
-        }
-      } else {
-        alert("Please fill out all fields.");
+    // Prepare cart item details to store
+    const cartItemDetails = cart.map(item => ({
+      productName: item.productName,
+      size: item.size,
+      color: item.color,
+      price: item.productPrice,
+      total: (parseFloat(item.productPrice.replace('R ', '').replace(',', ''))).toFixed(2),
+      petName: item.petsName || '',
+      shippingAddress: item.address || '',
+      country: item.country || '',
+      contact: item.contactNumber || ''
+    }));
+
+    if (name && email && address && city && postalCode && country && contact) {
+      try {
+        const userEmailNormalized = email.replace(/\./g, ","); 
+        const userDocRef = doc(db, "shippinginfo", userEmailNormalized);
+        
+        // Add shipping info and cart items to Firestore
+        await setDoc(userDocRef, {
+          name: name,
+          email: email,
+          address: address,
+          city: city,
+          postalCode: postalCode,
+          country: country,
+          contact: contact,
+          cartItems: cartItemDetails, // Storing detailed cart items
+          timestamp: new Date()
+        });
+        
+        alert("Your shipping info has been submitted successfully!");
+        window.location.href = "success.html";
+        document.getElementById('shipping-form').reset(); // Clear form after submission
+      } catch (e) {
+        console.error("Error adding document: ", e);
+        alert("Error: Something went wrong. Please try again.");
       }
-    });
-  </script>
+    } else {
+      alert("Please fill out all fields.");
+    }
+  });
+</script>
+
+
 
    <!--========== SCROLL UP ==========-->
    <a href="#" class="scrollup" id="scroll-up">
