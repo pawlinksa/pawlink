@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
   
 
-    <title>Clothing Shop</title>
+    <title>PawLink Cart</title>
 
     <style>
         * {
@@ -282,66 +282,102 @@
     </style>
 </head>
 <body>
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">Paw Link</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link">
+                        <i class="ri-home-line"></i> <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="index.html#new" class="nav__link">
+                        <i class="ri-price-tag-3-line"></i> <span>New</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="index.html#collection" class="nav__link">
+                        <i class="ri-compass-line"></i> <span>Collection</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="products.html" class="nav__link">
+                        <i class="ri-t-shirt-line"></i> <span>Products</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link" id="account-link">
+                        <i class="ri-user-line"></i> <span>Account</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="cart.html" class="nav__link active-link">
+                        <i class="ph-shopping-cart-bold"></i>
+                        <span>Cart</span>
+                    </a>
+                </li>    
+            </ul>
+        </div>
+        <i class="ri-moon-line change-theme" id="theme-button"></i>
+    </nav>
+</header>
 
 
-            <a href="index.html" class="nav__logo">
-                Shop.
-            </a>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">
-                            <i class="ri-home-line"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const accountLink = document.getElementById("account-link");
 
-                    <li class="nav__item">
-                        <a href="index.html#new" class="nav__link">
-                            <i class="ri-price-tag-3-line"></i>
-                            <span>New</span>
-                        </a>
-                    </li>
+        // Check if user is logged in via localStorage
+        if (localStorage.getItem("loggedIn") === "true") {
+            // User is logged in, allow access to accountinfo.html
+            accountLink.href = "accountinfo.html";
+        } else {
+            // User is not logged in, redirect to login page
+            accountLink.addEventListener("click", function (e) {
+                e.preventDefault();  // Prevent default # behavior
+                window.location.href = "login.html";  // Redirect to login
+            });
+        }
 
-                    <li class="nav__item">
-                        <a href="index.html#collection" class="nav__link">
-                            <i class="ri-compass-line"></i>
-                            <span>Collection</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="products.html" class="nav__link">
-                            <i class="ri-t-shirt-line"></i>
-                            <span>Products</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="accountinfo.html" class="nav__link">
-                            <i class="ri-t-shirt-line"></i>
-                            <span>Accounts</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="cart.html" class="nav__link active-link">
-                            <i class="ph-shopping-cart-bold"></i>
-                            <span>Cart</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Theme change button -->
-            <i class="ri-moon-line change-theme" id="theme-button"></i>
+        // Firebase Auth check (optional, in case you want to synchronize login status)
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // If logged in via Firebase, store in localStorage
+                localStorage.setItem("loggedIn", "true");
+            } else {
+                // If not logged in via Firebase, ensure localStorage reflects this
+                localStorage.setItem("loggedIn", "false");
+            }
+        });
+    });
+</script>
 
 
-        </nav>
-    </header>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const accountLink = document.getElementById("account-link");
+
+        // Check if the user is logged in
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // User is signed in, allow access to accountinfo.html
+                accountLink.href = "accountinfo.html";
+            } else {
+                // User is not signed in, redirect to login.html
+                accountLink.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    window.location.href = "login.html";
+                });
+            }
+        });
+    });
+</script>
 
     <div class="cart-container">
         <!-- Cart Section -->
@@ -364,9 +400,9 @@
     <form id="payfast-form" action="https://www.payfast.co.za/eng/process" method="POST" style="display:none;">
         <input type="hidden" name="merchant_id" value="25650623">
         <input type="hidden" name="merchant_key" value="ioif0f7bjlk3q">
-        <input type="hidden" name="return_url" value="https://yourwebsite.com/success.html">
-        <input type="hidden" name="cancel_url" value="https://yourwebsite.com/cancel.html">
-        <input type="hidden" name="notify_url" value="https://yourwebsite.com/notify.php">
+        <input type="hidden" name="return_url" value="https://pawlink.site/success.html">
+        <input type="hidden" name="cancel_url" value="https://pawlink.site/cancel.html">
+        <input type="hidden" name="notify_url" value="https://pawlink.site/notify.php">
         <input type="hidden" name="amount" id="amount-field" value="">
         <input type="hidden" name="item_name" value="Your Cart Items">
         <input type="hidden" name="m_payment_id" value="UNIQUE_PAYMENT_ID">
@@ -502,6 +538,94 @@ document.getElementById('checkout-button').addEventListener('click', () => {
         // Load items on page load
         document.addEventListener('DOMContentLoaded', loadCartItems);
     </script>
+
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div>
+                    <a href="#" class="footer__logo">
+                        Shop.
+                    </a>
+                    
+                    <p class="footer__description">
+                        Committed to bringing you the <br> 
+                        best clothing from popular <br>
+                        brands.
+                    </p>
+                </div>
+
+                <div class="footer__content">
+                    <div>
+                        <h3 class="footer__title">
+                            Company
+                        </h3>
+
+                        <ul class="footer__links">
+                            <li>
+                                <a href="products.html" class="footer__link">Shop</a>
+                            </li>
+                            <li>
+                                <a href="index.html#collection" class="footer__link">Category</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            Contact
+                        </h3>
+
+                        <ul class="footer__links">
+                            <li>
+                                <a href="contact.html" class="footer__link">Contact</a>
+                            </li>
+                            <li>
+                                <a href="news.html" class="footer__link">Popular news</a>
+                            </li>
+                            <li>
+                                <a href="about.html" class="footer__link">About</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                       
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            Contact us
+                        </h3>
+
+                        <ul class="footer__social">
+                            <!-- Insert your name from your facebook page -->
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <!-- Insert your name from your instagram page -->
+                            <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__info container">
+                <span class="footer__copy">
+                    &#169; Copyright. All rigths reserved
+                </span>
+
+                <a href="#" class="footer__privacy">
+                    Terms & Conditions
+                </a>
+            </div>
+        </footer>
+
 
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
