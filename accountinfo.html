@@ -165,66 +165,48 @@
 
 </head>
 <body>
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-
-
-            <a href="index.html" class="nav__logo">
-                Shop.
-            </a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">
-                            <i class="ri-home-line"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="index.html#new" class="nav__link">
-                            <i class="ri-price-tag-3-line"></i>
-                            <span>New</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="index.html#collection" class="nav__link">
-                            <i class="ri-compass-line"></i>
-                            <span>Collection</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="products.html" class="nav__link">
-                            <i class="ri-t-shirt-line"></i>
-                            <span>Products</span>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="accountinfo.html" class="nav__link  active-link">
-                            <i class="ri-t-shirt-line"></i>
-                            <span>Accounts</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="cart.html" class="nav__link">
-                            <i class="ph-shopping-cart-bold"></i>
-                            <span>Cart</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Theme change button -->
-            <i class="ri-moon-line change-theme" id="theme-button"></i>
-
-
-        </nav>
-    </header>
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">Shop.</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link active-link">
+                        <i class="ri-home-line"></i> <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="index.html#new" class="nav__link">
+                        <i class="ri-price-tag-3-line"></i> <span>New</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="index.html#collection" class="nav__link">
+                        <i class="ri-compass-line"></i> <span>Collection</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="products.html" class="nav__link">
+                        <i class="ri-t-shirt-line"></i> <span>Products</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link" id="account-link ">
+                        <i class="ri-user-line"></i> <span>Account</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="cart.html" class="nav__link">
+                        <i class="ph-shopping-cart-bold"></i>
+                        <span>Cart</span>
+                    </a>
+                </li>    
+            </ul>
+        </div>
+        <i class="ri-moon-line change-theme" id="theme-button"></i>
+    </nav>
+</header>
 
 
 <body>
@@ -242,7 +224,7 @@
             <h2>Options</h2>
             <ul>
                 <li><button onclick="showSection('address')">Address</button></li>
-                <li><button onclick="showSection('orders')">Orders</button></li>
+
                 <li><button onclick="showSection('account')">Account Info</button></li>
             </ul>
         </aside>
