@@ -8,6 +8,7 @@
 
     <!-- icons -->
     <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="https://unpkg.com/phosphor-icons"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +31,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="javascript/shoppingcart.js"></script>
 
-    <title>Clothing Shop</title>
+    <title>Product Info</title>
 
     <style>
         .nav__cart {
@@ -238,6 +239,7 @@
             text-align: center;
             position: relative;
             right: 67px;
+            margin-left: 150px;
         }
 
         .review-page-button:hover {
@@ -285,56 +287,77 @@
 </head>
 <body>
 
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="index.html" class="nav__logo">
-                Shop.
-            </a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">
-                            <i class="ri-home-line"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#new" class="nav__link">
-                            <i class="ri-price-tag-3-line"></i>
-                            <span>New</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#collection" class="nav__link">
-                            <i class="ri-compass-line"></i>
-                            <span>Collection</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="products.html" class="nav__link active-link">
-                            <i class="ri-t-shirt-line"></i>
-                            <span>Products</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="accountinfo.html" class="nav__link">
-                            <i class="ri-t-shirt-line"></i>
-                            <span>Accounts</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="cart.html" class="nav__link">
-                            <i class="ph-shopping-cart-bold"></i>
-                            <span>Cart</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- Theme change button -->
-            <i class="ri-moon-line change-theme" id="theme-button"></i>
-        </nav>
-    </header>
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">Paw Link</a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="index.html#home" class="nav__link active-link">
+                        <i class="ri-home-line"></i> <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="index.html#new" class="nav__link">
+                        <i class="ri-price-tag-3-line"></i> <span>New</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="index.html#collection" class="nav__link">
+                        <i class="ri-compass-line"></i> <span>Collection</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="products.html" class="nav__link">
+                        <i class="ri-t-shirt-line"></i> <span>Products</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link" id="account-link">
+                        <i class="ri-user-line"></i> <span>Account</span>
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="cart.html" class="nav__link">
+                        <i class="ph-shopping-cart-bold"></i>
+                        <span>Cart</span>
+                    </a>
+                </li>    
+            </ul>
+        </div>
+        <i class="ri-moon-line change-theme" id="theme-button"></i>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const accountLink = document.getElementById("account-link");
+
+        // Check if user is logged in via localStorage
+        if (localStorage.getItem("loggedIn") === "true") {
+            // User is logged in, allow access to accountinfo.html
+            accountLink.href = "accountinfo.html";
+        } else {
+            // User is not logged in, redirect to login page
+            accountLink.addEventListener("click", function (e) {
+                e.preventDefault();  // Prevent default # behavior
+                window.location.href = "login.html";  // Redirect to login
+            });
+        }
+
+        // Firebase Auth check (optional, in case you want to synchronize login status)
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // If logged in via Firebase, store in localStorage
+                localStorage.setItem("loggedIn", "true");
+            } else {
+                // If not logged in via Firebase, ensure localStorage reflects this
+                localStorage.setItem("loggedIn", "false");
+            }
+        });
+    });
+</script>
 
     <main>
         <section class="section--product-page">
@@ -599,7 +622,92 @@ petsInput.addEventListener('input', updateAddToCartButton);
     });
     </script>
 
-  
+          <!--==================== FOOTER ====================-->
+          <footer class="footer section">
+            <div class="footer__container container grid">
+                <div>
+                    <a href="#" class="footer__logo">
+                        Shop.
+                    </a>
+                    
+                    <p class="footer__description">
+                        Committed to bringing you the <br> 
+                        best clothing from popular <br>
+                        brands.
+                    </p>
+                </div>
+
+                <div class="footer__content">
+                    <div>
+                        <h3 class="footer__title">
+                            Company
+                        </h3>
+
+                        <ul class="footer__links">
+                            <li>
+                                <a href="products.html" class="footer__link">Shop</a>
+                            </li>
+                            <li>
+                                <a href="index.html#collection" class="footer__link">Category</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            Contact
+                        </h3>
+
+                        <ul class="footer__links">
+                            <li>
+                                <a href="contact.html" class="footer__link">Contact</a>
+                            </li>
+                            <li>
+                                <a href="news.html" class="footer__link">Popular news</a>
+                            </li>
+                            <li>
+                                <a href="about.html" class="footer__link">About</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                       
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            Contact us
+                        </h3>
+
+                        <ul class="footer__social">
+                            <!-- Insert your name from your facebook page -->
+                            <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <!-- Insert your name from your instagram page -->
+                            <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__info container">
+                <span class="footer__copy">
+                    &#169; Copyright. All rigths reserved
+                </span>
+
+                <a href="#" class="footer__privacy">
+                    Terms & Conditions
+                </a>
+            </div>
+        </footer>
+
   
 
         <!--========== SCROLL UP ==========-->
