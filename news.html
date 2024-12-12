@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rad Bikes is the best bike shop in the northwest!">
+
+
+
+
+
+
+
+    <meta name="description" content="Paw Link - Custom NFC Pet Tags">
+    <meta name="keywords" content="pet tags, NFC, Paw Link, custom pet name tags">
+    <meta name="author" content="Your Name">
+    
+
+
+
+
+
+
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <title>PawLink - Shop</title>
+
+    <!--=============== FAVICON ===============-->
+    <link rel="icon" href="assets/img/favicon.png" type="image/png">
+
+    <!--=============== PRECONNECTS ===============-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!--=============== FONTS ===============-->
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Raleway&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Rock+Salt&display=swap" 
+        rel="stylesheet">
+
+    <!--=============== ICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons">
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--=============== MAIN CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!--=============== DEFERRED STYLES ===============-->
+    <style>
+        /* Inline optimizations for smaller styles */
+        .nav__cart {
+            margin-left: 30px;
+        }
+
+        .news__container {
+            padding: 40px;
+        }
+        .news__title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .news__text {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .news__highlight {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Paw Link</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">
+                            <i class="ri-home-line"></i> <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#new" class="nav__link">
+                            <i class="ri-price-tag-3-line"></i> <span>New</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#collection" class="nav__link">
+                            <i class="ri-compass-line"></i> <span>Collection</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="products.html" class="nav__link">
+                            <i class="ri-t-shirt-line"></i> <span>Products</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link" id="account-link">
+                            <i class="ri-user-line"></i> <span>Account</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="cart.html" class="nav__link">
+                            <i class="ph-shopping-cart-bold"></i>
+                            <span>Cart</span>
+                        </a>
+                    </li>    
+                </ul>
+            </div>
+            <i class="ri-moon-line change-theme" id="theme-button"></i>
+        </nav>
+    </header>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const accountLink = document.getElementById("account-link");
+
+            // Check if user is logged in via localStorage
+            if (localStorage.getItem("loggedIn") === "true") {
+                // User is logged in, allow access to accountinfo.html
+                accountLink.href = "accountinfo.html";
+            } else {
+                // User is not logged in, redirect to login page
+                accountLink.addEventListener("click", function (e) {
+                    e.preventDefault();  // Prevent default # behavior
+                    window.location.href = "login.html";  // Redirect to login
+                });
+            }
+
+            // Firebase Auth check (optional, in case you want to synchronize login status)
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    // If logged in via Firebase, store in localStorage
+                    localStorage.setItem("loggedIn", "true");
+                } else {
+                    // If not logged in via Firebase, ensure localStorage reflects this
+                    localStorage.setItem("loggedIn", "false");
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const accountLink = document.getElementById("account-link");
+
+            // Check if the user is logged in
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in, allow access to accountinfo.html
+                    accountLink.href = "accountinfo.html";
+                } else {
+                    // User is not signed in, redirect to login.html
+                    accountLink.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        window.location.href = "login.html";
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Main Content -->
+    <main class="main">
+        <section class="news section">
+            <div class="news__container container">
+                <h1 class="news__title">Exciting News from PawLink</h1>
+                <p class="news__text">
+                    At PawLink, we are committed to making a difference for pets and pet owners alike. We're excited to announce our upcoming fundraising events aimed at helping local shelters, including the <span class="news__highlight">SPCA</span> in Durban. 
+                </p>
+                <p class="news__text">
+                    We’ll be hosting several fundraisers throughout the year to raise money for shelters that provide care, shelter, and adoption services for animals in need. Your support means the world to us, and we look forward to seeing you at these events.
+                </p>
+                <p class="news__text">
+                    Stay tuned for more details on how you can participate in these initiatives. Together, we can make a huge difference in the lives of animals in our community.
+                </p>
+            </div>
+        </section>
+    </main>
+
+     <!--==================== FOOTER ====================-->
+     <footer class="footer section">
+        <div class="footer__container container grid">
+            <div>
+                <a href="#" class="footer__logo">
+                    Shop.
+                </a>
+                
+                <p class="footer__description">
+                    Committed to bringing you the <br> 
+                    best clothing from popular <br>
+                    brands.
+                </p>
+            </div>
+
+            <div class="footer__content">
+                <div>
+                    <h3 class="footer__title">
+                        Company
+                    </h3>
+
+                    <ul class="footer__links">
+                        <li>
+                            <a href="products.html" class="footer__link">Shop</a>
+                        </li>
+                        <li>
+                            <a href="index.html#collection" class="footer__link">Category</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="footer__title">
+                        Contact
+                    </h3>
+
+                    <ul class="footer__links">
+                        <li>
+                            <a href="contact.html" class="footer__link">Contact</a>
+                        </li>
+                        <li>
+                            <a href="news.html" class="footer__link">Popular news</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="footer__link">About</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                   
+                </div>
+
+                <div>
+                    <h3 class="footer__title">
+                        Contact us
+                    </h3>
+
+                    <ul class="footer__social">
+                        <!-- Insert your name from your facebook page -->
+                        <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <!-- Insert your name from your instagram page -->
+                        <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__info container">
+            <span class="footer__copy">
+                &#169; Copyright. All rigths reserved
+            </span>
+
+            <a href="#" class="footer__privacy">
+                Terms & Conditions
+            </a>
+        </div>
+    </footer>
+    
+        <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line"></i>
+        </a>
+        
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+</body>
+</html>
