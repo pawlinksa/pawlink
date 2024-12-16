@@ -18,72 +18,70 @@
         <changefreq>monthly</changefreq>
         <priority>0.30</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/cancel.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.30</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/cart.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.00</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/contact</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/login.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/news.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.30</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/orderdetails.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/productinfo.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.00</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/products.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.00</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/register.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.30</priority>
     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/success.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.30</priority>
     </url>
-     </url>
-        <url>
+    <url>
         <loc>https://pawlink.site/reviews.html</loc>
         <lastmod>2024-12-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.70</priority>
     </url>
-    <!-- Add more URLs here -->
 </urlset>
