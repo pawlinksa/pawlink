@@ -74,6 +74,36 @@
             color: #555;
             margin-bottom: 20px;
         }
+        /* Responsive design for the image */
+.about__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__img {
+    max-width: 100%; /* Ensures the image doesn't overflow */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better visual appeal */
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .about__container {
+        grid-template-columns: 1fr; /* Stacks the content vertically */
+        text-align: center; /* Centers the text for better readability */
+    }
+
+    .about__image {
+        margin-top: 20px; /* Adds spacing between text and image */
+    }
+
+    .about__img {
+        max-width: 90%; /* Adds some padding around the image */
+    }
+}
+
     </style>
 </head>
 <body>
@@ -191,7 +221,7 @@
                     </p>
                 </div>
                 <div class="about__image">
-                    <img src="assets/img/about-image.png" alt="About PawLink" class="about__img">
+                    <img src="image/front page/cat1.jpg" alt="About PawLink" class="about__img">
                 </div>
             </div>
         </section>
