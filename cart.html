@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M2DZJS3GFZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-M2DZJS3GFZ');
-</script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Rad Bikes is the best bike shop in the northwest!">
+   
+
+
+    <meta name="description" content="Paw Link - Custom NFC Pet Tags, Tap, track, and bring them back!">
+    <meta name="keywords" content="pet tags, NFC, Paw Link, custom pet name tags">
+    <meta name="author" content="Torben">
+
+
+
 
     <!-- icons -->
     <script src="https://unpkg.com/phosphor-icons"></script>
@@ -24,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Raleway&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Rock+Salt&display=swap" rel="stylesheet" />
 
     <!--=============== FAVICON ===============-->
-    <link rel="icon" href="image/front page/fav.png" type="image/png">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -406,10 +405,10 @@
         </div>
     </div>
 
-    <form id="payfast-form" action="https://sandbox.payfast.co.za/eng/process" method="POST" style="display:none;">
-        <input type="hidden" name="merchant_id" value="10036363">
-        <input type="hidden" name="merchant_key" value="ytkl0ej4y462g">
-        <input type="hidden" name="return_url" value="https://pawlink.site/orderdetails.html">
+    <form id="payfast-form" action="https://www.payfast.co.za/eng/process" method="POST" style="display:none;">
+        <input type="hidden" name="merchant_id" value="25650623">
+        <input type="hidden" name="merchant_key" value="ioif0f7bjlk3q">
+        <input type="hidden" name="return_url" value="https://pawlink.site/success.html">
         <input type="hidden" name="cancel_url" value="https://pawlink.site/cancel.html">
         <input type="hidden" name="notify_url" value="https://pawlink.site/notify.php">
         <input type="hidden" name="amount" id="amount-field" value="">
@@ -549,91 +548,90 @@ document.getElementById('checkout-button').addEventListener('click', () => {
     </script>
 
 
-        <!--==================== FOOTER ====================-->
-        <footer class="footer section">
-            <div class="footer__container container grid">
-                <div>
-                    <a href="#" class="footer__logo">
-                        Shop.
+  <!--==================== FOOTER ====================-->
+  <footer class="footer section">
+    <div class="footer__container container grid">
+        <div>
+            <a href="#" class="footer__logo">
+                Paw Link
+            </a>
+            
+            <p class="footer__description">
+                Smart Tags for Safe Pets. <br> 
+                Tap, track, and bring them back! <br>
+            </p>
+        </div>
+
+        <div class="footer__content">
+            <div>
+                <h3 class="footer__title">
+                    Company
+                </h3>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="products.html" class="footer__link">Shop</a>
+                    </li>
+                    <li>
+                        <a href="index.html#collection" class="footer__link">Category</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer__title">
+                    Contact
+                </h3>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="contact.html" class="footer__link">Contact</a>
+                    </li>
+                    <li>
+                        <a href="news.html" class="footer__link">Popular news</a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="footer__link">About</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+               
+            </div>
+
+            <div>
+                <h3 class="footer__title">
+                    Contact us
+                </h3>
+
+                <ul class="footer__social">
+                    <!-- Insert your name from your facebook page -->
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                        <i class="ri-facebook-fill"></i>
                     </a>
-                    
-                    <p class="footer__description">
-                        Committed to bringing you the <br> 
-                        best clothing from popular <br>
-                        brands.
-                    </p>
-                </div>
+                    <!-- Insert your name from your instagram page -->
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                        <i class="ri-instagram-line"></i>
+                    </a>
 
-                <div class="footer__content">
-                    <div>
-                        <h3 class="footer__title">
-                            Company
-                        </h3>
-
-                        <ul class="footer__links">
-                            <li>
-                                <a href="products.html" class="footer__link">Shop</a>
-                            </li>
-                            <li>
-                                <a href="index.html#collection" class="footer__link">Category</a>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="footer__title">
-                            Contact
-                        </h3>
-
-                        <ul class="footer__links">
-                            <li>
-                                <a href="contact.html" class="footer__link">Contact</a>
-                            </li>
-                            <li>
-                                <a href="news.html" class="footer__link">Popular news</a>
-                            </li>
-                            <li>
-                                <a href="about.html" class="footer__link">About</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                       
-                    </div>
-
-                    <div>
-                        <h3 class="footer__title">
-                            Contact us
-                        </h3>
-
-                        <ul class="footer__social">
-                            <!-- Insert your name from your facebook page -->
-                            <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
-                                <i class="ri-facebook-fill"></i>
-                            </a>
-                            <!-- Insert your name from your instagram page -->
-                            <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
-                                <i class="ri-instagram-line"></i>
-                            </a>
-
-                            </a>
-                        </ul>
-                    </div>
-                </div>
+                    </a>
+                </ul>
             </div>
+        </div>
+    </div>
 
-            <div class="footer__info container">
-                <span class="footer__copy">
-                    &#169; Copyright. All rigths reserved
-                </span>
+    <div class="footer__info container">
+        <span class="footer__copy">
+            &#169; Copyright. All rigths reserved
+        </span>
 
-                <a href="#" class="footer__privacy">
-                    Terms & Conditions
-                </a>
-            </div>
-        </footer>
+        <a href="#" class="footer__privacy">
+            Terms & Conditions
+        </a>
+    </div>
+</footer>
 
 
     <!--========== SCROLL UP ==========-->
